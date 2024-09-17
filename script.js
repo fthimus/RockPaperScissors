@@ -1,10 +1,14 @@
+const choices = ["Rock", "Paper", "Scissors"];
+
 const getComputerChoice = () => {
+    const choicesLength = choices.length;
     const seed = Math.random();
-    if (seed > (2 / 3))
-        return "Rock";
-    if (seed > (1 / 3) && seed < (2 / 3))
-        return "Paper";
-    return "Scissors";
+
+    for (let i = 1; i < choicesLength; i++) {
+        if (seed > (choicesLength - i) / choicesLength && seed < (choicesLength - (i - 1)) / choicesLength)
+            return seed + choices[choicesLength - i];
+    }
+    return choices[0];
 }
 
 console.log(getComputerChoice());
