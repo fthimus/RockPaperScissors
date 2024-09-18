@@ -49,6 +49,18 @@ const playRound = (humanChoice, computerChoice) => {
     }
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-playRound(humanSelection, computerSelection);
+const playGame = () => {
+    for (let i = 0; i < 5; i++) {
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection);
+    }
+    if (humanScore > computerScore)
+        console.log("Winner: Player");
+    if (humanScore == computerScore)
+        console.log("Winner: None");
+    if (humanScore < computerScore)
+        console.log("Winner: Computer");
+}
+
+playGame();
